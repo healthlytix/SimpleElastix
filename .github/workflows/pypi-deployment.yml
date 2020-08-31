@@ -1,0 +1,17 @@
+name: Build and push to pypi
+
+on:
+  repository_dispatch:
+  push:
+  
+jobs:
+    build:
+        name: simpleelastix superbuild
+        runs-on: ubuntu-16.04
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v2
+            - name: build
+              run: $GITHUB_WORKSPACE/build-scripts/ubuntu-16.04-build.sh
+            - name: verify build
+              run: python -c "import SimpleITK as sitk; sitk.ElastixImageFilter()"
