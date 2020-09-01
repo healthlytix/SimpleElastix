@@ -1,6 +1,8 @@
 #!/bin/bash
 
-brew install cmake
+brew install cmake rbenv
+rbenv install 2.6.6  # need to reinstall to add headers
+
 cd $GITHUB_WORKSPACE
 mkdir build
 cd build
