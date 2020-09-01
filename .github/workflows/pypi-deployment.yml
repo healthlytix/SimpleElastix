@@ -32,7 +32,7 @@ jobs:
               run: $GITHUB_WORKSPACE/build-scripts/ubuntu-16.04-build.sh
             - name: verify build
               run: python -c "import SimpleITK as sitk; sitk.ElastixImageFilter()"
-            - name: Upload wheel
+            - name: upload wheel as github artifact
               uses: actions/upload-artifact@v2
               with:
                 name: linux-wheel
