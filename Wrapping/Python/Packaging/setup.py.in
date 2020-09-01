@@ -28,20 +28,20 @@ def get_pep386version():
 
     if sitkPATCH:
         version += "."+sitkPATCH
-        if sitkTWEAK:
-            version += "."+sitkTWEAK
+        # if sitkTWEAK:
+        #     version += "."+sitkTWEAK
 
     if  sitkRC:
         version += sitkRC
 
-    if sitkPOST:
-        version += ".post"+sitkPOST
-    elif sitkDEV:
-        version += ".dev"+sitkDEV
+    # if sitkPOST:
+    #     version += ".post"+sitkPOST
+    # elif sitkDEV:
+    #     version += ".dev"+sitkDEV
 
-    # Local Version Identifier
-    if sitkHASH and not "@SimpleITK_BUILD_DISTRIBUTE@" in ['1', 'ON']:
-        version += "+g"+sitkHASH
+    # # Local Version Identifier
+    # if sitkHASH and not "@SimpleITK_BUILD_DISTRIBUTE@" in ['1', 'ON']:
+    #     version += "+g"+sitkHASH
 
     return version
 
