@@ -4,13 +4,13 @@ on:
   repository_dispatch:
   push:
 
-jobs:
-  build:
-      name: simpleelastix superbuild
-      runs-on: macos-10.15
-      steps:
-          - name: check python
-            run: python --version
+# jobs:
+#   build:
+#       name: simpleelastix superbuild
+#       runs-on: macos-10.15
+#       steps:
+#           - name: check python
+#             run: python --version
 
           # - name: checkout code
           #   uses: actions/checkout@v2
@@ -24,19 +24,19 @@ jobs:
           #     name: osx-wheel
           #     path: $GITHUB_WORKSPACE/build/SimpleITK-build/Wrapping/Python/wheel-dist/
 
-# jobs:
-#     build:
-#         name: simpleelastix superbuild
-#         runs-on: ubuntu-16.04
-#         steps:
-#             - name: checkout code
-#               uses: actions/checkout@v2
-#             - name: build
-#               run: $GITHUB_WORKSPACE/build-scripts/ubuntu-16.04-build.sh
-#             - name: verify build
-#               run: python -c "import SimpleITK as sitk; sitk.ElastixImageFilter()"
-#             - name: upload wheel as github artifact
-#               uses: actions/upload-artifact@v2
-#               with:
-#                 name: linux-wheel
-#                 path: $GITHUB_WORKSPACE/build/SimpleITK-build/Wrapping/Python/wheel-dist/SimpleITK_Elastix-2.0.0rc2-cp38-cp38-manylinux1_x86_64.whl
+jobs:
+    build:
+        name: simpleelastix superbuild
+        runs-on: ubuntu-16.04
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v2
+            - name: build
+              run: $GITHUB_WORKSPACE/build-scripts/ubuntu-16.04-build.sh
+            - name: verify build
+              run: python -c "import SimpleITK as sitk; sitk.ElastixImageFilter()"
+            - name: upload wheel as github artifact
+              uses: actions/upload-artifact@v2
+              with:
+                name: linux-wheel
+                path: $GITHUB_WORKSPACE/build/SimpleITK-build/Wrapping/Python/wheel-dist/SimpleITK_Elastix-2.0.0rc2-cp38-cp38-manylinux1_x86_64.whl

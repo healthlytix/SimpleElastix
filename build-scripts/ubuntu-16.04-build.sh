@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "${GITHUB_WORKSPACE+set}" != set ]; then
+    GITHUB_WORKSPACE=`pwd`
+    echo WARNING: Setting GITHUB_WORKSPACE to current directory, $GITHUB_WORKSPACE
+fi
+
 sudo apt install cmake
 cd $GITHUB_WORKSPACE
 mkdir build
@@ -7,7 +12,7 @@ cd build
 cmake ../SuperBuild
 make -j2
 cd SimpleITK-build/Wrapping/Python
-sudo python Packaging/setup.py install
+# sudo python Packaging/setup.py install
 
 # build wheel
 python Packaging/setup.py bdist_wheel -d wheel-dist
