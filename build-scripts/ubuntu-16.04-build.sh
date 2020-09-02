@@ -21,4 +21,4 @@ mv $SRC_WHEEL_FILENAME $DEST_WHEEL_FILENAME
 
 # upload to pypi
 pip install twine
-twine upload --username cortechslabs --password $PYPI_PASSWORD *
+twine upload --repository-url https://test.pypi.org/legacy/ --username cortechslabs --password $PYPI_PASSWORD *
