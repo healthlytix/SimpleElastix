@@ -16,7 +16,7 @@ ls -lh wheel-dist  # show the generated wheel file
 # fake a manylinux build by simply renaming the wheel file
 cd wheel-dist
 SRC_WHEEL_FILENAME=`ls`
-DEST_WHEEL_FILENAME=`echo $SRC_WHEEL_FILENAME | sed 's/m-linux/-manylinux1/'`
+DEST_WHEEL_FILENAME=`echo $SRC_WHEEL_FILENAME | sed 's/linux/manylinux1/'`
 mv $SRC_WHEEL_FILENAME $DEST_WHEEL_FILENAME
 
 # upload to pypi
